@@ -1,0 +1,63 @@
+khusus laravel :
+1. model di folder app
+2. app/Http -> menghandle segala kegiatan yg berkaitan dengan http (controller, middleware)
+3. database/migrations -> berguna utk melakukan struktur database
+4. database/seeds-> mengisi init data database (admin)
+5. public -> isisnya asset-asset
+6. resources -> view
+7. routes -> rute-rute/jalannya
+8. test -> salah satu fitur dari laravel adalah unit testing
+
+model
+
+middleware -> sebuah class yg menjembatani antara routes dan controller. utk leveling user.
+
+blade -> templateing engine bawaan laravel
+
+======================================
+
+1. app
+    Http
+        Controllers -> ini folder controller nya
+        Middleware -> mengecek apakah sudah login/belum? tiap ada request (get, post)
+        Kernel.php -> baris 53 $reouteMiddleware = -> mendaftarkan middleware kegiatan
+    
+    Providers
+        AppServiceProvider.php -> bari 14 func boot() -> Provider ini akan jalan ketika app laravel ini berjalan
+    
+    User.php -> Model bawaan, boleh dipakai/dihapus.
+
+2. config -> semua konfigurasi ada disini
+    app.php -> ini adalah konfigurasi utama app. 
+                    biasanya yg dirubah vendor,locale, providers (semua paket yg diinstal 
+                    baik pihak ketiga atau bukan seperti widget, juga didaftarkan disini. )
+        
+    database.php -> ini file konfigurasi database (mysql/sqlite/postgre)
+    
+3. database
+    migrations -> untuk migrasi database, per tabel.
+                        ($table->timestamps() agar otomatis membuat field created_at dan upadted_at)
+
+4. public -> folder asset
+
+5. resources -> Semua file views ada disini
+    views -> folder views, menggunakan templating blade. Dibuat folder-folder baru di dalamanya
+
+6. routes -> menyimpan folder-folder dari rute.
+
+7. storage -> penyimpanan info sementara (cache, log)
+
+8. vendor -> semua paket-paket yg terinstal (library) masuk ke sini
+
+9. .env -> Settingan web ada disni. kenapa tidak di config? 
+            Sebenarnya file di config tadi merepresentasikan yg ada di sini.
+
+10. composer.json -> paket-paket yg terinstal ada di sini
+
+======
+
+1. membuat controller : php artisan make:controller Home
+2. membuat model : php artisan make:model Mahasiswa -m (sekaligus file migration)
+3. buka file .env edit baris 12, 13, 14 -> config database
+4. jalankan migrate db dengan sintaks -> php artisan migrate
+    *catatan : migrate hanya digunakan saat pertama kali 

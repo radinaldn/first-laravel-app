@@ -11,6 +11,15 @@
 |
 */
 
-Route::get('/', function () {
-    return view('welcome');
+Route::get('/hello', function() {
+    return view('hello', [
+        'nama' => 'Halo Laravel Pertamaku!',
+    ]);
 });
+
+Route::get('/home', 'Home@index');
+Route::get('/home/create', 'Home@create');
+Route::get('/home/view/{id}', 'Home@view');
+Route::get('/home/update/{id}', 'Home@update');
+Route::get('/home/delete/{id}', 'Home@delete');
+Route::get('/rumah', 'Rumah@index');

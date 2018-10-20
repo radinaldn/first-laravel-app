@@ -79,8 +79,15 @@
 
             <div class="content">
                 <div class="title m-b-md">
-                    Welcome to Laravel App
+                    Congratulations!
                 </div>
+                    <h1>
+                    You have successfully created your <a style="color: #f4645f">Laravel<a>-powered application.
+                    </h1>
+
+                
+
+
 
                 <div class="links">
                     <a href="https://laravel.com/docs">Documentation</a>
